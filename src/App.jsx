@@ -12,7 +12,7 @@ function App() {
       <div>
         <div className="w-full flex justify-center">
           <h1 className="w-fit m-10 px-3 pb-2 text-white font-bold text-5xl bg-gradient-to-b from-transparent from-50% to-violet-500/50 to-50%">
-            Kanban Board
+            🥟 Kanban Board
           </h1>
         </div>
 
