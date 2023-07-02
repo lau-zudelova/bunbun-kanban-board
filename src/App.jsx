@@ -10,9 +10,10 @@ function App() {
   return (
     <>
       <div>
-        <div className="w-full flex justify-center">
-          <h1 className="w-fit m-10 px-3 pb-2 text-white font-bold text-5xl bg-gradient-to-b from-transparent from-50% to-violet-500/50 to-50%">
-            🥟 Kanban Board
+        <div className="w-full flex justify-center items-center ">
+          <h1 className="relative w-fit m-10 px-32 pb-2 text-white font-bold text-5xl bg-gradient-to-b from-transparent from-50% to-violet-500/50 to-50%">
+            <img className="absolute h-24 z-10 left-3 -top-4" src="/logo.svg" />
+            {"Bunbun Board"}
           </h1>
         </div>
 
