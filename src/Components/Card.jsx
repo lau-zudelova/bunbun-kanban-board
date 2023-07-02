@@ -1,0 +1,96 @@
+import { DotsThreeVertical } from "@phosphor-icons/react";
+import { useState } from "react";
+import Menu from "../Modals/Menu";
+import { TYPES } from "../Classes/Types";
+import { useGlobalContext } from "../GlobalContext";
+import CardDetail from "../Modals/CardDetail";
+
+export default function Card({ card }) {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isDetailOpen, setIsDetailOpen] = useState(false);
+  const [coords, setCoords] = useState(null);
+  const [titleInput, setTitleInput] = useState(card.title);
+  const [isEditable, setIsEditable] = useState(() => {
+    if (card.title === "") return true;
+    else return false;
+  });
+
+  const { editCardTitle, addCard, deleteCard } = useGlobalContext();
+
+  const getCoords = () => {
+    const buttonElement = document.getElementById(card.id);
+    if (buttonElement) {
+      const buttonRect = buttonElement.getBoundingClientRect();
+      setCoords(buttonRect);
+    }
+  };
+
+  const saveTitle = (title) => {
+    editCardTitle(card, title);
+    setIsEditable(false);
+  };
+
+  return (
+    <div className="flex h-auto rounded-md p-2 mb-4 border-t border-t-orange-200 border-opacity-10 bg-gray-800 shadow-md items-center">
+      {isEditable ? (
+        <input
+          autoFocus
+          type="text"
+          className="w-full p-2 rounded-md bg-gray-900 border border-gray-700 text-white font-semibold focus:outline-none focus:border-violet-400 caret-violet-400 selection:bg-violet-200 selection:text-violet-900"
+          value={titleInput}
+          onChange={(e) => setTitleInput(e.target.value)}
+          onKeyDown={(e) => {
+            if (e.key === "Enter" && e.shiftKey) {
+              saveTitle(e.target.value);
+              addCard(card.containerId);
+            } else if (e.key === "Enter") {
+              saveTitle(e.target.value);
+            } else if (e.key === "Escape") {
+              if (card.title === "") deleteCard(card);
+              else {
+                e.target.value = card.title;
+                setIsEditable(false);
+              }
+            }
+          }}
+        />
+      ) : (
+        <>
+          {card.title === "---" ? (
+            <hr className="w-full h-full bg-green-200 border border-gray-500" />
+          ) : (
+            <p
+              className="w-full text-white font-semibold cursor-pointer hover:text-violet-400"
+              onClick={() => setIsDetailOpen(true)}
+            >
+              {card.title}
+            </p>
+          )}
+        </>
+      )}
+      <CardDetail
+        isOpen={isDetailOpen}
+        close={() => setIsDetailOpen(false)}
+        card={card}
+      />
+      <button
+        id={card.id}
+        className="p-1 justify-self-end text-white hover:bg-gray-700 rounded-md hover:text-violet-400 transition-all duration-100"
+        onClick={() => {
+          setIsMenuOpen(true);
+          getCoords();
+        }}
+      >
+        <DotsThreeVertical size={18} />
+      </button>
+      <Menu
+        isOpen={isMenuOpen}
+        close={() => setIsMenuOpen(false)}
+        coords={coords}
+        type={TYPES.CARD}
+        object={card}
+        setIsEditable={setIsEditable}
+      />
+    </div>
+  );
+}

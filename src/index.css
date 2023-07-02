@@ -1,0 +1,49 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  background-color: #111827;    /*bg-gray-900*/
+}
+
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 100ms ease-in forwards;
+}
+
+h1 {
+  @apply text-yellow-400 text-3xl font-bold
+}
+
+h2 {
+  @apply text-sky-400 text-2xl font-bold
+}
+
+h3 {
+  @apply text-emerald-400 text-xl font-bold
+}
+
+h4 {
+  @apply text-rose-400 font-bold
+}
+
+blockquote {
+  @apply p-2 my-1 border-solid bg-gray-775 border-l-4 border-violet-300
+}
+
+ul {
+  @apply ml-[14px] list-disc
+}
+
+ol {
+  @apply ml-[14px] list-decimal
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
