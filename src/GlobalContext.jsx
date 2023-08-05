@@ -158,6 +158,37 @@ export const GlobalContextProvider = ({ children }) => {
     }
   }
 
+  const drag = (event) => {
+    event.dataTransfer.setData("text/plain", event.currentTarget.dataset.id);
+  };
+
+  const dragEnter = (event) => {
+    console.log("should highlight");
+    if (event.target.classList.contains("Container")) {
+      event.target.classList.add("highlight");
+    }
+    if (event.target.classList.contains("Card")) {
+      event.target.classList.add("highlight");
+    }
+  };
+  const dragLeave = (event) => {
+    event.target.classList.remove("highlight");
+  };
+  const drop = (event) => {};
+  const allowDrop = (event) => {};
+
+  const dragStart = (event) => {
+    if (event.target.classList.contains("Card")) {
+      event.target.classList.add("draggingCard");
+    }
+  };
+
+  const dragEnd = (event) => {
+    if (event.target.classList.contains("Card")) {
+      event.target.classList.remove("draggingCard");
+    }
+  };
+
   return (
     <GlobalContext.Provider
       value={{
@@ -171,6 +202,13 @@ export const GlobalContextProvider = ({ children }) => {
         editCardMessage,
         appendImage,
         deleteImage,
+        drag,
+        dragEnter,
+        dragLeave,
+        drop,
+        allowDrop,
+        dragStart,
+        dragEnd,
       }}
     >
       {children}

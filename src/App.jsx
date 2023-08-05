@@ -2,10 +2,26 @@ import Container from "./Components/Containter";
 import { useGlobalContext } from "./GlobalContext";
 import { Plus } from "@phosphor-icons/react";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
+import { useEffect } from "react";
 
 function App() {
-  const { containers, addContainer } = useGlobalContext();
+  const { containers, addContainer, dragStart, dragEnd, dragEnter, dragLeave } =
+    useGlobalContext();
   const [parent] = useAutoAnimate();
+
+  useEffect(() => {
+    document.addEventListener("dragstart", dragStart);
+    document.addEventListener("dragend", dragEnd);
+    // document.addEventListener("dragenter", dragEnter);
+    // document.addEventListener("dragleave", dragLeave);
+
+    return () => {
+      document.removeEventListener("dragstart", dragStart);
+      document.removeEventListener("dragend", dragEnd);
+      // document.removeEventListener("dragenter", dragEnter);
+      // document.removeEventListener("dragleave", dragLeave);
+    };
+  }, []);
 
   return (
     <>

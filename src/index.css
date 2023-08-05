@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 html {
-  background-color: #111827;    /*bg-gray-900*/
+  background-color: #111827; /*bg-gray-900*/
 }
 
 .fade-in {
@@ -12,31 +12,31 @@ html {
 }
 
 h1 {
-  @apply text-yellow-400 text-3xl font-bold
+  @apply text-yellow-400 text-3xl font-bold;
 }
 
 h2 {
-  @apply text-sky-400 text-2xl font-bold
+  @apply text-sky-400 text-2xl font-bold;
 }
 
 h3 {
-  @apply text-emerald-400 text-xl font-bold
+  @apply text-emerald-400 text-xl font-bold;
 }
 
 h4 {
-  @apply text-rose-400 font-bold
+  @apply text-rose-400 font-bold;
 }
 
 blockquote {
-  @apply p-2 my-1 border-solid bg-gray-775 border-l-4 border-violet-300
+  @apply p-2 my-1 border-solid bg-gray-775 border-l-4 border-violet-300;
 }
 
 ul {
-  @apply ml-[14px] list-disc
+  @apply ml-[14px] list-disc;
 }
 
 ol {
-  @apply ml-[14px] list-decimal
+  @apply ml-[14px] list-decimal;
 }
 
 @keyframes fadeIn {
@@ -46,4 +46,16 @@ ol {
   to {
     opacity: 1;
   }
+}
+
+.Card.draggingCard {
+  @apply opacity-50 scale-95;
+}
+
+.Container.highlight {
+  @apply border-solid border-violet-300 bg-red-300;
+}
+
+.Card.highlight {
+  @apply transition-none border-t-0 border-b-2 border-violet-300;
 }

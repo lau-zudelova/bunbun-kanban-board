@@ -15,7 +15,7 @@ export default function Card({ card }) {
     else return false;
   });
 
-  const { editCardTitle, addCard, deleteCard } = useGlobalContext();
+  const { editCardTitle, addCard, deleteCard, drag } = useGlobalContext();
 
   const getCoords = () => {
     const buttonElement = document.getElementById(card.id);
@@ -31,7 +31,12 @@ export default function Card({ card }) {
   };
 
   return (
-    <div className="flex h-auto rounded-md p-2 mb-4 border-t border-t-orange-200 border-opacity-10 bg-gray-800 shadow-md items-center">
+    <div
+      className="Card flex h-auto rounded-md p-2 mb-4 border-t border-t-blue-200 border-opacity-10 bg-gray-800 shadow-md items-center active:cursor-grabbing transition-transform"
+      draggable="true"
+      onDragStart={drag}
+      data-id={card.id}
+    >
       {isEditable ? (
         <input
           autoFocus
@@ -60,7 +65,7 @@ export default function Card({ card }) {
             <hr className="w-full h-full bg-green-200 border border-gray-500" />
           ) : (
             <p
-              className="w-full text-white font-semibold cursor-pointer hover:text-violet-400"
+              className="w-full pointer-events-none select-none text-white font-semibold cursor-pointer hover:text-violet-400"
               onClick={() => setIsDetailOpen(true)}
             >
               {card.title}
