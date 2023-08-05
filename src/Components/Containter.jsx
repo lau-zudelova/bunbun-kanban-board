@@ -74,8 +74,8 @@ export default function Container({ container }) {
       onDragOver={allowDrop}
       onDrop={(event) => drop(event, container)}
     >
-      <div className="flex items-center pb-2 mb-5 border-solid border-b border-violet-500/70">
-        <button className="pr-1 hover: cursor-grab">
+      <div className="flex items-center pb-2 mb-5 border-solid border-b border-violet-500/70 pointer-events-none">
+        <button className="pr-1 hover: cursor-grab pointer-events-auto">
           <DotsSixVertical color="white" size={20} />
         </button>
         {isEditable ? (
@@ -102,7 +102,7 @@ export default function Container({ container }) {
         )}
         <button
           id={container.id}
-          className="p-1 justify-self-end text-white hover:bg-gray-700 rounded-md hover:text-violet-400 transition-all duration-100"
+          className="p-1 justify-self-end text-white hover:bg-gray-700 rounded-md hover:text-violet-400 transition-all duration-100 pointer-events-auto"
           onClick={() => {
             setIsMenuOpen(true);
             getCoords();
@@ -124,9 +124,9 @@ export default function Container({ container }) {
         <Card key={card.id} card={card} />
       ))}
 
-      <div className="w-full h-7 my-2 flex items-center justify-center">
+      <div className="w-full h-7 my-2 flex items-center justify-center pointer-events-none">
         <button
-          className="flex items-center justify-center h-8 w-8 text-white rounded-md hover:bg-violet-500 transition-all duration-100"
+          className="flex items-center justify-center h-8 w-8 text-white rounded-md hover:bg-violet-500 transition-all duration-100 pointer-events-auto"
           onClick={() => addCard(container.id)}
         >
           <PlusCircle size={20} />
