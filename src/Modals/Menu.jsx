@@ -29,7 +29,8 @@ export default function Menu({
       >
         <button
           className="flex items-center p-1 m-1 w-full text-white hover:bg-gray-700 rounded-md hover:text-violet-400 transition-all duration-100"
-          onClick={() => {
+          onClick={(event) => {
+            event.stopPropagation();
             setIsEditable(true);
             close();
           }}
@@ -39,7 +40,8 @@ export default function Menu({
         </button>
         <button
           className="flex items-center p-1 m-1 w-full text-white hover:bg-rose-200/20 rounded-md hover:text-rose-400 transition-all duration-100"
-          onClick={() => {
+          onClick={(event) => {
+            event.stopPropagation();
             type === TYPES.CONTAINER
               ? deleteContainer(object)
               : deleteCard(object);

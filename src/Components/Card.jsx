@@ -43,7 +43,7 @@ export default function Card({ card }) {
       draggable="true"
       onDragStart={drag}
       onClick={(event) => {
-        if (isDetailOpen === false) setIsDetailOpen(true);
+        if (isDetailOpen === false && !isEditable) setIsDetailOpen(true);
       }}
       data-cardid={card.id}
     >
