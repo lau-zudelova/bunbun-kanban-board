@@ -5,27 +5,24 @@ import { useAutoAnimate } from "@formkit/auto-animate/react";
 import { useEffect } from "react";
 
 function App() {
-  const { containers, addContainer, dragStart, dragEnd, dragEnter, dragLeave } =
-    useGlobalContext();
+  const { containers, addContainer } = useGlobalContext();
   const [parent] = useAutoAnimate();
 
-  useEffect(() => {
-    document.addEventListener("dragstart", dragStart);
-    document.addEventListener("dragend", dragEnd);
-    // document.addEventListener("dragenter", dragEnter);
-    // document.addEventListener("dragleave", dragLeave);
+  const dragStart = (event) => {
+    if (event.target.classList.contains("Card")) {
+      event.target.classList.add("draggingCard");
+    }
+  };
 
-    return () => {
-      document.removeEventListener("dragstart", dragStart);
-      document.removeEventListener("dragend", dragEnd);
-      // document.removeEventListener("dragenter", dragEnter);
-      // document.removeEventListener("dragleave", dragLeave);
-    };
-  }, []);
+  const dragEnd = (event) => {
+    if (event.target.classList.contains("Card")) {
+      event.target.classList.remove("draggingCard");
+    }
+  };
 
   return (
     <>
-      <div>
+      <div onDragStart={dragStart} onDragEnd={dragEnd}>
         <div className="w-full flex justify-center items-center select-none">
           <h1 className="relative w-fit m-10 px-32 pb-2 text-white font-bold text-5xl bg-gradient-to-b from-transparent from-50% to-violet-500/50 to-50%">
             <img

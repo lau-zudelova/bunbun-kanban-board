@@ -17,14 +17,8 @@ export default function Container({ container }) {
     if (container.title === "") return true;
     else return false;
   });
-  const {
-    addCard,
-    editContainerTitle,
-    deleteContainer,
-    dragEnter,
-    dragLeave,
-    moveCard,
-  } = useGlobalContext();
+  const { addCard, editContainerTitle, deleteContainer, moveCard } =
+    useGlobalContext();
   const [coords, setCoords] = useState(null);
   const [parent] = useAutoAnimate();
   const [cards, setCards] = useState(container.cards);
@@ -42,9 +36,23 @@ export default function Container({ container }) {
     setIsEditable(false);
   };
 
+  const dragEnter = (event) => {
+    if (event.target.classList.contains("Container")) {
+      event.target.classList.add("highlight");
+    }
+    if (event.target.classList.contains("Card")) {
+      event.target.classList.add("highlight");
+    }
+  };
+
+  const dragLeave = (event) => {
+    event.target.classList.remove("highlight");
+  };
+
   const drop = (event, newContainer) => {
     // const newContainer = event.currentTarget.dataset.container;
     const cardId = event.dataTransfer.getData("text/plain");
+    console.log(event.currentTarget);
 
     event.target.classList.remove("highlight");
 

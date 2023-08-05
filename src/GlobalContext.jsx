@@ -199,31 +199,6 @@ export const GlobalContextProvider = ({ children }) => {
     }
   }
 
-  const dragEnter = (event) => {
-    if (event.target.classList.contains("Container")) {
-      event.target.classList.add("highlight");
-    }
-    if (event.target.classList.contains("Card")) {
-      event.target.classList.add("highlight");
-    }
-  };
-
-  const dragLeave = (event) => {
-    event.target.classList.remove("highlight");
-  };
-
-  const dragStart = (event) => {
-    if (event.target.classList.contains("Card")) {
-      event.target.classList.add("draggingCard");
-    }
-  };
-
-  const dragEnd = (event) => {
-    if (event.target.classList.contains("Card")) {
-      event.target.classList.remove("draggingCard");
-    }
-  };
-
   return (
     <GlobalContext.Provider
       value={{
@@ -237,10 +212,6 @@ export const GlobalContextProvider = ({ children }) => {
         editCardMessage,
         appendImage,
         deleteImage,
-        dragEnter,
-        dragLeave,
-        dragStart,
-        dragEnd,
         moveCard,
       }}
     >
