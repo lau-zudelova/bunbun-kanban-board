@@ -19,7 +19,8 @@ export default function Menu({
     <>
       <div
         className="fixed top-0 left-0 z-10 w-full h-full"
-        onClick={() => {
+        onClick={(event) => {
+          event.stopPropagation();
           close();
         }}
       />

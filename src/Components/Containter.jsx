@@ -82,7 +82,7 @@ export default function Container({ container }) {
           <input
             autoFocus
             type="text"
-            className="w-full p-2 rounded-md bg-gray-900 border border-gray-700 text-white font-bold focus:outline-none focus:border-violet-400 caret-violet-400 selection:bg-violet-200 selection:text-violet-900"
+            className="w-full p-2 rounded-md bg-gray-900 border border-gray-700 text-white font-bold focus:outline-none focus:border-violet-400 caret-violet-400 selection:bg-violet-200 selection:text-violet-900 pointer-events-auto"
             value={titleInput}
             onChange={(e) => setTitleInput(e.target.value)}
             onKeyDown={(e) => {
