@@ -88,7 +88,7 @@ export const GlobalContextProvider = ({ children }) => {
     }
   }
 
-  function moveCard(cardId, newContainer, cardAboveId) {
+  function moveCard(cardId, newContainer, cardBelowId) {
     // arr.splice(index, 0, item)
     const card = getCardById(cardId);
     const prevContainers = [...containers];
@@ -101,26 +101,21 @@ export const GlobalContextProvider = ({ children }) => {
 
     if (oldContainerIndex !== -1 && newContainerIndex !== -1) {
       // Add to a new container
-      if (cardAboveId) {
-        const cardAboveIndex = prevContainers[
+      if (cardBelowId) {
+        const cardBelowIndex = prevContainers[
           newContainerIndex
-        ].cards.findIndex((card) => card.id === cardAboveId);
+        ].cards.findIndex((card) => card.id === cardBelowId);
         prevContainers[newContainerIndex] = {
           ...prevContainers[newContainerIndex],
           cards: [
-            ...prevContainers[newContainerIndex].cards.slice(
-              0,
-              cardAboveIndex + 1
-            ),
+            ...prevContainers[newContainerIndex].cards.slice(0, cardBelowIndex),
             new CardClass(
               card.title,
               card.message,
               newContainer.id,
               card.images
             ),
-            ...prevContainers[newContainerIndex].cards.slice(
-              cardAboveIndex + 1
-            ),
+            ...prevContainers[newContainerIndex].cards.slice(cardBelowIndex),
           ],
         };
         console.log(prevContainers[newContainerIndex]);

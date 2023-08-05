@@ -52,13 +52,13 @@ export default function Container({ container }) {
   const drop = (event, newContainer) => {
     // const newContainer = event.currentTarget.dataset.container;
     const cardId = event.dataTransfer.getData("text/plain");
-    const cardAboveId = event.target.dataset.cardid;
+    const cardBelowId = event.target.dataset.cardid;
 
     event.target.classList.remove("highlight");
 
     event.preventDefault();
 
-    moveCard(cardId, newContainer, cardAboveId);
+    moveCard(cardId, newContainer, cardBelowId);
   };
 
   const allowDrop = (event) => {
@@ -68,13 +68,13 @@ export default function Container({ container }) {
   return (
     <div
       ref={parent}
-      className="Container relative h-min w-96 p-2 m-3 rounded-md bg-gray-850 shadow-xl"
+      className="Container relative h-min w-96 p-2 m-3 rounded-md bg-gray-850 shadow-xl border-2 border-gray-850/0"
       onDragEnter={dragEnter}
       onDragLeave={dragLeave}
       onDragOver={allowDrop}
       onDrop={(event) => drop(event, container)}
     >
-      <div className="flex items-center pb-2 mb-5 border-solid border-b border-violet-500/70 ">
+      <div className="flex items-center pb-2 mb-5 border-solid border-b border-violet-500/70">
         <button className="pr-1 hover: cursor-grab">
           <DotsSixVertical color="white" size={20} />
         </button>

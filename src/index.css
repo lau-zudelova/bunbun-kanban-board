@@ -53,9 +53,9 @@ ol {
 }
 
 .Container.highlight {
-  @apply border-solid border-2 border-violet-300;
+  @apply border-solid border-2 border-violet-300 border-opacity-100;
 }
 
 .Card.highlight {
-  @apply transition-none border-t-0 border-b-2 border-violet-300;
+  @apply transition-none border-t-2 border-violet-300;
 }
