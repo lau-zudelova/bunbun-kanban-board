@@ -39,7 +39,7 @@ export default function Card({ card }) {
 
   return (
     <div
-      className="Card flex hover:cursor-pointer hover:text-violet-400 text-white h-auto rounded-md p-2 mb-4 border-t border-t-blue-200 border-opacity-10 bg-gray-800 shadow-md items-center active:cursor-grabbing transition-transform"
+      className="Card flex hover:cursor-pointer hover:text-violet-400 text-white h-auto rounded-md p-2 mb-4 border-t border-t-blue-200 border-opacity-10 bg-gray-800 shadow-md items-center transition-transform"
       draggable="true"
       onDragStart={drag}
       onClick={(event) => {
@@ -88,7 +88,8 @@ export default function Card({ card }) {
       <button
         id={card.id}
         className="p-1 justify-self-end text-white hover:bg-gray-700 rounded-md hover:text-violet-400 transition-all duration-100"
-        onClick={() => {
+        onClick={(event) => {
+          event.stopPropagation();
           setIsMenuOpen(true);
           getCoords();
         }}

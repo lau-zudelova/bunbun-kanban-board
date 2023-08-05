@@ -118,7 +118,6 @@ export const GlobalContextProvider = ({ children }) => {
             ...prevContainers[newContainerIndex].cards.slice(cardBelowIndex),
           ],
         };
-        console.log(prevContainers[newContainerIndex]);
       } else {
         prevContainers[newContainerIndex] = {
           ...prevContainers[newContainerIndex],
