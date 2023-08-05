@@ -15,7 +15,7 @@ export default function Card({ card }) {
     else return false;
   });
 
-  const { editCardTitle, addCard, deleteCard, drag } = useGlobalContext();
+  const { editCardTitle, addCard, deleteCard } = useGlobalContext();
 
   const getCoords = () => {
     const buttonElement = document.getElementById(card.id);
@@ -30,12 +30,22 @@ export default function Card({ card }) {
     setIsEditable(false);
   };
 
+  const drag = (event) => {
+    event.dataTransfer.setData(
+      "text/plain",
+      event.currentTarget.dataset.cardid
+    );
+  };
+
   return (
     <div
-      className="Card flex h-auto rounded-md p-2 mb-4 border-t border-t-blue-200 border-opacity-10 bg-gray-800 shadow-md items-center active:cursor-grabbing transition-transform"
+      className="Card flex hover:cursor-pointer hover:text-violet-400 text-white h-auto rounded-md p-2 mb-4 border-t border-t-blue-200 border-opacity-10 bg-gray-800 shadow-md items-center active:cursor-grabbing transition-transform"
       draggable="true"
       onDragStart={drag}
-      data-id={card.id}
+      onClick={(event) => {
+        if (isDetailOpen === false) setIsDetailOpen(true);
+      }}
+      data-cardid={card.id}
     >
       {isEditable ? (
         <input
@@ -64,10 +74,7 @@ export default function Card({ card }) {
           {card.title === "---" ? (
             <hr className="w-full h-full bg-green-200 border border-gray-500" />
           ) : (
-            <p
-              className="w-full pointer-events-none select-none text-white font-semibold cursor-pointer hover:text-violet-400"
-              onClick={() => setIsDetailOpen(true)}
-            >
+            <p className="w-full pointer-events-auto select-none  font-semibold cursor-pointer ">
               {card.title}
             </p>
           )}

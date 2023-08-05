@@ -88,6 +88,47 @@ export const GlobalContextProvider = ({ children }) => {
     }
   }
 
+  function moveCard(cardId, newContainer) {
+    const card = getCardById(cardId);
+    const prevContainers = [...containers];
+    const oldContainerIndex = prevContainers.findIndex(
+      (container) => container.id === card.containerId
+    );
+    const newContainerIndex = prevContainers.findIndex(
+      (container) => container.id === newContainer.id
+    );
+
+    if (oldContainerIndex !== -1 && newContainerIndex !== -1) {
+      // Add to a new container
+      prevContainers[newContainerIndex] = {
+        ...prevContainers[newContainerIndex],
+        cards: [
+          ...prevContainers[newContainerIndex].cards,
+          new CardClass(card.title, card.message, newContainer.id),
+        ],
+      };
+
+      // Remove from the old one
+      prevContainers[oldContainerIndex] = {
+        ...prevContainers[oldContainerIndex],
+        cards: [
+          ...prevContainers[oldContainerIndex].cards.filter(
+            (item) => item.id !== card.id
+          ),
+        ],
+      };
+    }
+    setContainers(prevContainers);
+  }
+
+  function getCardById(id) {
+    for (const container of containers) {
+      for (const card of container.cards) {
+        if (card.id == id) return card;
+      }
+    }
+  }
+
   function editCardTitle(card, newTitle) {
     const prevContainers = [...containers];
     const containerIndex = prevContainers.findIndex(
@@ -158,12 +199,7 @@ export const GlobalContextProvider = ({ children }) => {
     }
   }
 
-  const drag = (event) => {
-    event.dataTransfer.setData("text/plain", event.currentTarget.dataset.id);
-  };
-
   const dragEnter = (event) => {
-    console.log("should highlight");
     if (event.target.classList.contains("Container")) {
       event.target.classList.add("highlight");
     }
@@ -171,11 +207,10 @@ export const GlobalContextProvider = ({ children }) => {
       event.target.classList.add("highlight");
     }
   };
+
   const dragLeave = (event) => {
     event.target.classList.remove("highlight");
   };
-  const drop = (event) => {};
-  const allowDrop = (event) => {};
 
   const dragStart = (event) => {
     if (event.target.classList.contains("Card")) {
@@ -202,13 +237,11 @@ export const GlobalContextProvider = ({ children }) => {
         editCardMessage,
         appendImage,
         deleteImage,
-        drag,
         dragEnter,
         dragLeave,
-        drop,
-        allowDrop,
         dragStart,
         dragEnd,
+        moveCard,
       }}
     >
       {children}

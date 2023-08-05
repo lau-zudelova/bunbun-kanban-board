@@ -23,8 +23,7 @@ export default function Container({ container }) {
     deleteContainer,
     dragEnter,
     dragLeave,
-    allowDrop,
-    drop,
+    moveCard,
   } = useGlobalContext();
   const [coords, setCoords] = useState(null);
   const [parent] = useAutoAnimate();
@@ -43,15 +42,29 @@ export default function Container({ container }) {
     setIsEditable(false);
   };
 
+  const drop = (event, newContainer) => {
+    // const newContainer = event.currentTarget.dataset.container;
+    const cardId = event.dataTransfer.getData("text/plain");
+
+    event.target.classList.remove("highlight");
+
+    event.preventDefault();
+
+    moveCard(cardId, newContainer);
+  };
+
+  const allowDrop = (event) => {
+    event.preventDefault();
+  };
+
   return (
     <div
       ref={parent}
       className="Container relative h-min w-96 p-2 m-3 rounded-md bg-gray-850 shadow-xl"
-      data-container={container.id}
       onDragEnter={dragEnter}
       onDragLeave={dragLeave}
       onDragOver={allowDrop}
-      onDrop={drop}
+      onDrop={(event) => drop(event, container)}
     >
       <div className="flex items-center pb-2 mb-5 border-solid border-b border-violet-500/70 ">
         <button className="pr-1 hover: cursor-grab">

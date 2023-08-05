@@ -53,7 +53,7 @@ ol {
 }
 
 .Container.highlight {
-  @apply border-solid border-violet-300 bg-red-300;
+  @apply border-solid border-2 border-violet-300;
 }
 
 .Card.highlight {
