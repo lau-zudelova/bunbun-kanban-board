@@ -1,10 +1,10 @@
 export class CardClass {
-  constructor(title, message, containerId) {
+  constructor(title, message, containerId, images) {
     this.id = crypto.randomUUID();
     this.title = title;
     this.message = message;
     this.containerId = containerId;
-    this.images = [];
+    this.images = images;
   }
 }
 

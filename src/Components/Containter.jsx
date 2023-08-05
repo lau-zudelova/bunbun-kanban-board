@@ -52,13 +52,13 @@ export default function Container({ container }) {
   const drop = (event, newContainer) => {
     // const newContainer = event.currentTarget.dataset.container;
     const cardId = event.dataTransfer.getData("text/plain");
-    console.log(event.currentTarget);
+    const cardAboveId = event.target.dataset.cardid;
 
     event.target.classList.remove("highlight");
 
     event.preventDefault();
 
-    moveCard(cardId, newContainer);
+    moveCard(cardId, newContainer, cardAboveId);
   };
 
   const allowDrop = (event) => {

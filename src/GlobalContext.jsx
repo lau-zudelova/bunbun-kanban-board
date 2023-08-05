@@ -62,7 +62,7 @@ export const GlobalContextProvider = ({ children }) => {
         ...prevContainers[containerIndex],
         cards: [
           ...prevContainers[containerIndex].cards,
-          new CardClass("", "", containerId),
+          new CardClass("", "", containerId, []),
         ],
       };
     }
@@ -88,7 +88,8 @@ export const GlobalContextProvider = ({ children }) => {
     }
   }
 
-  function moveCard(cardId, newContainer) {
+  function moveCard(cardId, newContainer, cardAboveId) {
+    // arr.splice(index, 0, item)
     const card = getCardById(cardId);
     const prevContainers = [...containers];
     const oldContainerIndex = prevContainers.findIndex(
@@ -100,13 +101,43 @@ export const GlobalContextProvider = ({ children }) => {
 
     if (oldContainerIndex !== -1 && newContainerIndex !== -1) {
       // Add to a new container
-      prevContainers[newContainerIndex] = {
-        ...prevContainers[newContainerIndex],
-        cards: [
-          ...prevContainers[newContainerIndex].cards,
-          new CardClass(card.title, card.message, newContainer.id),
-        ],
-      };
+      if (cardAboveId) {
+        const cardAboveIndex = prevContainers[
+          newContainerIndex
+        ].cards.findIndex((card) => card.id === cardAboveId);
+        prevContainers[newContainerIndex] = {
+          ...prevContainers[newContainerIndex],
+          cards: [
+            ...prevContainers[newContainerIndex].cards.slice(
+              0,
+              cardAboveIndex + 1
+            ),
+            new CardClass(
+              card.title,
+              card.message,
+              newContainer.id,
+              card.images
+            ),
+            ...prevContainers[newContainerIndex].cards.slice(
+              cardAboveIndex + 1
+            ),
+          ],
+        };
+        console.log(prevContainers[newContainerIndex]);
+      } else {
+        prevContainers[newContainerIndex] = {
+          ...prevContainers[newContainerIndex],
+          cards: [
+            ...prevContainers[newContainerIndex].cards,
+            new CardClass(
+              card.title,
+              card.message,
+              newContainer.id,
+              card.images
+            ),
+          ],
+        };
+      }
 
       // Remove from the old one
       prevContainers[oldContainerIndex] = {
