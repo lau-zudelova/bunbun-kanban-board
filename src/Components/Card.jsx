@@ -40,7 +40,7 @@ export default function Card({ card }) {
   return (
     <div
       className="Card flex hover:cursor-pointer hover:text-violet-400 text-white h-auto rounded-md p-2 mb-4 border-t border-t-blue-200 border-opacity-10 bg-gray-800 shadow-md items-center transition-transform"
-      draggable="true"
+      draggable={!isEditable}
       onDragStart={drag}
       onClick={(event) => {
         if (isDetailOpen === false && !isEditable) setIsDetailOpen(true);
@@ -64,6 +64,7 @@ export default function Card({ card }) {
               if (card.title === "") deleteCard(card);
               else {
                 e.target.value = card.title;
+                setTitleInput(card.title);
                 setIsEditable(false);
               }
             }
