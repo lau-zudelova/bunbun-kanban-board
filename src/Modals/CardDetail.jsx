@@ -102,7 +102,7 @@ export default function CardDetail({ isOpen, close, card }) {
                     );
                   },
                 }}
-                className="CardDetail h-full w-full p-3 text-white selection:bg-violet-200 selection:text-violet-900"
+                className="CardDetail h-full w-full p-3 text-white selection:bg-violet-200 selection:text-violet-900 overflow-y-scroll"
               />
               <Gallery card={card} />
             </>
