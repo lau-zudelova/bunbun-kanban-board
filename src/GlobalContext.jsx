@@ -3,6 +3,7 @@ import { CardClass } from "./Classes/Classes";
 import { ContainerClass } from "./Classes/Classes";
 import { DIRECTIONS } from "./Classes/Directions";
 import { COLORS } from "./Classes/Colors";
+import { defaultData } from "./assets/DefaultData";
 
 export function replaceCharacter(string, index, replacement) {
   return (
@@ -18,7 +19,7 @@ export const useGlobalContext = () => useContext(GlobalContext);
 export const GlobalContextProvider = ({ children }) => {
   const [containers, setContainers] = useState(() => {
     const storedValue = localStorage.getItem("userData");
-    return storedValue ? JSON.parse(storedValue) : [];
+    return storedValue ? JSON.parse(storedValue) : defaultData;
   });
 
   useEffect(() => {
