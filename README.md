@@ -3,7 +3,7 @@ I needed a simple but powerful kanban board with local storage for my work. All 
 
 **Please note, this project is still very much a work in progress!**
 
-  ## 📖 How to use
+  ## 📖 Introduction
   - The kanban board is at 👉 https://kanban.laurazudel.me/
     
   ![image](https://github.com/lau-zudelova/bunbun-kanban-board/assets/42751429/8edc569d-7672-426b-97ab-070a181520e7)
@@ -11,7 +11,7 @@ I needed a simple but powerful kanban board with local storage for my work. All 
   - You can add cards and containers, edit them, open the detail and write more information into the cards, add images to the cards, drag them between containers and reorder them.
 
 
-  ## ⚡ Features
+  ## ⚡ How to use
 
   - Plus buttons add cards and containers.
   - When adding a card, while still typing the title, `Shift + Enter` quickly saves the card and adds a new one.
@@ -77,7 +77,8 @@ I needed a simple but powerful kanban board with local storage for my work. All 
   ## 📋 To be added
 
   - [ ] Import + Export
-  - [ ] Tags
+  - [ ] Color coding cards
+  - [ ] Preview for TODOs
 
 ---
 
