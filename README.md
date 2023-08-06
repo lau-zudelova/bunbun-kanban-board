@@ -1,8 +1,6 @@
 # Bunbun Kanban Board
 I needed a simple but powerful kanban board with local storage for my work. All kanbans I have found online did not support neither Markdown nor inserting images (*crucial*), so I decided to make one!
 
-**Please note, this project is still very much a work in progress!**
-
   ## 📖 Introduction
   - The kanban board is at 👉 https://kanban.laurazudel.me/
     
@@ -15,20 +13,16 @@ I needed a simple but powerful kanban board with local storage for my work. All 
 
   - Plus buttons add cards and containers.
   - When adding a card, while still typing the title, `Shift + Enter` quickly saves the card and adds a new one.
-  - You can edit card titles or delete cards in the card menu:
+  - You can edit titles or delete cards and containers in the menu:
     
-  ![image](https://github.com/lau-zudelova/bunbun-kanban-board/assets/42751429/f7cb1574-8392-4545-aef0-3ee51b1df899)
-  
-  ![image](https://github.com/lau-zudelova/bunbun-kanban-board/assets/42751429/c752da0c-bfe1-48c1-8564-dd4559dcbc8c)
-
-  - The same applies to the container menu:
-
-  ![image](https://github.com/lau-zudelova/bunbun-kanban-board/assets/42751429/6a0d263b-72dd-42fc-993a-c3e0660ca9ee)
-  
-  ![image](https://github.com/lau-zudelova/bunbun-kanban-board/assets/42751429/2aa1c7ae-0edd-449b-91e7-50bdf91c4c65)
+  ![](https://github.com/lau-zudelova/bunbun-kanban-board/blob/main/readme_resources/edit.gif)
 
   - Hit `Enter` to save changes, or `ESC` to cancel them.
   - `Enter` also confirms adding the card / container, while `ESC` cancels it.
+
+  - Change the text color of a card:
+    
+  ![](https://github.com/lau-zudelova/bunbun-kanban-board/blob/main/readme_resources/changeColor.gif)
 
   - Click on a card to open detail:
     
@@ -48,36 +42,33 @@ I needed a simple but powerful kanban board with local storage for my work. All 
 
   - Also supports checking checkboxes directly, without having to enter editing mode:
 
-  ![image](https://github.com/lau-zudelova/bunbun-kanban-board/assets/42751429/385ddeee-d630-411e-a438-4ca106f0b9f9)
-
+  ![](https://github.com/lau-zudelova/bunbun-kanban-board/blob/main/readme_resources/checkbox.gif)
 
   - To insert an image, simply copy it (or print screen / use snipping tool), click on 'Paste Image' and it's there!
-  - **IMPORTANT**: Images are supported only in Chromium-based browsers, since clipboard pasting is only supported Chromium-based browsers - [link](https://developer.mozilla.org/en-US/docs/Web/API/Clipboard_API)
+  - **IMPORTANT**: Images are supported in all browsers except Firefox, since clipboard pasting is not supported in Firefox - [link](https://developer.mozilla.org/en-US/docs/Web/API/Clipboard_API)
 
-  ![image](https://github.com/lau-zudelova/bunbun-kanban-board/assets/42751429/b32b0c85-5282-4296-815f-2eadd292a38c)
+  ![](https://github.com/lau-zudelova/bunbun-kanban-board/blob/main/readme_resources/images.gif)
 
   - You can delete it by hovering on it and clicking X.
 
-  ![image](https://github.com/lau-zudelova/bunbun-kanban-board/assets/42751429/95380a36-e426-4285-8ff9-717dd082f35d)
-
   - Drag the card to move it to another container:
-
-  ![image](https://github.com/lau-zudelova/bunbun-kanban-board/assets/42751429/6c867bfd-2adb-4d3d-b6d2-1057c986ed06)
-
-  ![image](https://github.com/lau-zudelova/bunbun-kanban-board/assets/42751429/eb4665dd-6781-4d90-99aa-fc6fecd8959c)
+    
+  ![](https://github.com/lau-zudelova/bunbun-kanban-board/blob/main/readme_resources/moveCard.gif)
 
 
   - Change the order by dragging it directly onto another card, to insert it above the card:
+    
+  ![](https://github.com/lau-zudelova/bunbun-kanban-board/blob/main/readme_resources/reorderCard.gif)
 
-  ![image](https://github.com/lau-zudelova/bunbun-kanban-board/assets/42751429/e5e40166-6769-4e5c-b76f-4b1bd77cd522)
+  - Change the order of containers using buttons in the menu:
 
-  ![image](https://github.com/lau-zudelova/bunbun-kanban-board/assets/42751429/3922c393-34c9-4775-872e-abf7a81d6595)
+  ![](https://github.com/lau-zudelova/bunbun-kanban-board/blob/main/readme_resources/reorderContainers.gif)
 
 
   ## 📋 To be added
 
   - [ ] Import + Export
-  - [ ] Color coding cards
+  - [x] Color coding cards
   - [ ] Preview for TODOs
 
 ---
