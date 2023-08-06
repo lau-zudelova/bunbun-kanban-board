@@ -33,7 +33,7 @@ I needed a simple but powerful kanban board with local storage for my work. All 
 
   - Markdown preview: 
   
-  ![image](https://github.com/lau-zudelova/bunbun-kanban-board/assets/42751429/6af65691-cd4b-4fb3-9232-a4fd943f6b5a)
+  ![image](https://github.com/lau-zudelova/bunbun-kanban-board/assets/42751429/0ab6909e-24e6-4850-aaf7-926d15f13d5e)
 
 
   - Also supports checking checkboxes directly, without having to enter editing mode:
