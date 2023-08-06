@@ -11,7 +11,20 @@ I needed a simple but powerful kanban board with local storage for my work. All 
 
 
   ## ⚡ Feature Highlights
+  
+  - Markdown preview: 
 
+  ![image](https://github.com/lau-zudelova/bunbun-kanban-board/assets/42751429/59c5300a-6c08-428f-9946-df03cfead903)
+
+  - To insert an image, simply copy it (or print screen / use snipping tool), click on 'Paste Image' and it's there!
+  - **IMPORTANT**: Images are supported in all browsers except Firefox, since clipboard pasting is not supported in Firefox - [link](https://developer.mozilla.org/en-US/docs/Web/API/Clipboard_API)
+
+  ![](https://github.com/lau-zudelova/bunbun-kanban-board/blob/main/readme_resources/images.gif)
+
+  - Supports checking checkboxes directly, without having to enter editing mode:
+
+  ![](https://github.com/lau-zudelova/bunbun-kanban-board/blob/main/readme_resources/checkbox.gif)
+  
   - When adding a card, while still typing the title, `Shift + Enter` quickly saves the card and adds a new one.
 
   ![](https://github.com/lau-zudelova/bunbun-kanban-board/blob/main/readme_resources/addCardsFast.gif)
@@ -29,21 +42,6 @@ I needed a simple but powerful kanban board with local storage for my work. All 
   - Pencil to enter Editing mode.
 
   ![](https://github.com/lau-zudelova/bunbun-kanban-board/blob/main/readme_resources/cardDetail.gif)
-    
-
-  - Markdown preview: 
-  
-  ![image](https://github.com/lau-zudelova/bunbun-kanban-board/assets/42751429/0ab6909e-24e6-4850-aaf7-926d15f13d5e)
-
-
-  - Also supports checking checkboxes directly, without having to enter editing mode:
-
-  ![](https://github.com/lau-zudelova/bunbun-kanban-board/blob/main/readme_resources/checkbox.gif)
-
-  - To insert an image, simply copy it (or print screen / use snipping tool), click on 'Paste Image' and it's there!
-  - **IMPORTANT**: Images are supported in all browsers except Firefox, since clipboard pasting is not supported in Firefox - [link](https://developer.mozilla.org/en-US/docs/Web/API/Clipboard_API)
-
-  ![](https://github.com/lau-zudelova/bunbun-kanban-board/blob/main/readme_resources/images.gif)
 
 
   ## 📋 To be added
