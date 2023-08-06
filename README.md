@@ -6,7 +6,7 @@ I needed a simple but powerful kanban board with local storage for my work. All 
 
 - The kanban board is at 👉 https://kanban.laurazudel.me/
 
-![image](https://github.com/lau-zudelova/bunbun-kanban-board/assets/42751429/ae61a311-80f0-4f40-932b-c1fe164dc300)](https://kanban.laurazudel.me/)
+![image](https://github.com/lau-zudelova/bunbun-kanban-board/assets/42751429/ae61a311-80f0-4f40-932b-c1fe164dc300)(https://kanban.laurazudel.me/)
 
 ## ⚡ Feature Highlights
 
