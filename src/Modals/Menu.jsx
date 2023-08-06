@@ -1,8 +1,14 @@
 import React from "react";
-import { FileX, Pencil, Trash } from "@phosphor-icons/react";
+import {
+  Pencil,
+  Trash,
+  ArrowFatLineLeft,
+  ArrowFatLineRight,
+} from "@phosphor-icons/react";
 import ReactDom from "react-dom";
 import { useGlobalContext } from "../GlobalContext";
 import { TYPES } from "../Classes/Types";
+import { DIRECTIONS } from "../Classes/Directions";
 
 export default function Menu({
   isOpen,
@@ -12,7 +18,7 @@ export default function Menu({
   object,
   setIsEditable,
 }) {
-  const { deleteContainer, deleteCard } = useGlobalContext();
+  const { deleteContainer, deleteCard, moveContainer } = useGlobalContext();
 
   if (!isOpen) return null;
   return ReactDom.createPortal(
@@ -28,6 +34,30 @@ export default function Menu({
         className="absolute flex items-center justify-center flex-col z-20 p-1 rounded-md bg-gray-775 shadow-md fade-in"
         style={{ left: coords.x - 95, top: coords.y }}
       >
+        {type === TYPES.CONTAINER ? (
+          <div className="flex justify-center w-full">
+            <button
+              className="flex items-center p-1 m-1 text-white hover:bg-gray-700 rounded-md hover:text-violet-400 transition-all duration-100"
+              onClick={(event) => {
+                event.stopPropagation();
+                moveContainer(object, DIRECTIONS.LEFT);
+                close();
+              }}
+            >
+              <ArrowFatLineLeft size={20} />
+            </button>
+            <button
+              className="flex items-center p-1 m-1 text-white hover:bg-gray-700 rounded-md hover:text-violet-400 transition-all duration-100"
+              onClick={(event) => {
+                event.stopPropagation();
+                moveContainer(object, DIRECTIONS.RIGHT);
+                close();
+              }}
+            >
+              <ArrowFatLineRight size={20} />
+            </button>
+          </div>
+        ) : null}
         <button
           className="flex items-center p-1 m-1 w-full text-white hover:bg-gray-700 rounded-md hover:text-violet-400 transition-all duration-100"
           onClick={(event) => {

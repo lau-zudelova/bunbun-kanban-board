@@ -1,6 +1,7 @@
 import React, { useState, useContext, useEffect } from "react";
 import { CardClass } from "./Classes/Classes";
 import { ContainerClass } from "./Classes/Classes";
+import { DIRECTIONS } from "./Classes/Directions";
 
 export function replaceCharacter(string, index, replacement) {
   return (
@@ -89,7 +90,6 @@ export const GlobalContextProvider = ({ children }) => {
   }
 
   function moveCard(cardId, newContainer, cardBelowId) {
-    // arr.splice(index, 0, item)
     const card = getCardById(cardId);
     const prevContainers = [...containers];
     const oldContainerIndex = prevContainers.findIndex(
@@ -143,6 +143,38 @@ export const GlobalContextProvider = ({ children }) => {
         ],
       };
     }
+    setContainers(prevContainers);
+  }
+
+  function moveContainer(container, direction) {
+    const index = containers.findIndex((c) => c.id === container.id);
+
+    if (index === -1) return;
+    if (index === 0 && direction === DIRECTIONS.LEFT) return;
+    if (index === containers.length - 1 && direction === DIRECTIONS.RIGHT)
+      return;
+
+    const swapWithIndex = direction === DIRECTIONS.LEFT ? index - 1 : index + 1;
+
+    const tempContainer = containers[swapWithIndex];
+    let prevContainers = [...containers];
+
+    if (direction === DIRECTIONS.LEFT) {
+      prevContainers = [
+        ...prevContainers.slice(0, swapWithIndex),
+        container,
+        tempContainer,
+        ...prevContainers.slice(index + 1, containers.length),
+      ];
+    } else {
+      prevContainers = [
+        ...prevContainers.slice(0, index),
+        tempContainer,
+        container,
+        ...prevContainers.slice(swapWithIndex + 1, containers.length),
+      ];
+    }
+
     setContainers(prevContainers);
   }
 
@@ -238,6 +270,7 @@ export const GlobalContextProvider = ({ children }) => {
         appendImage,
         deleteImage,
         moveCard,
+        moveContainer,
       }}
     >
       {children}
