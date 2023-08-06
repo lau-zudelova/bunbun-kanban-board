@@ -39,8 +39,11 @@ export default function Card({ card }) {
 
   return (
     <div
-      className="Card flex hover:cursor-pointer hover:text-violet-400 text-white h-auto rounded-md p-2 mb-4 border-t border-t-blue-200 border-opacity-10 bg-gray-800 shadow-md items-center transition-transform"
+      className={`Card flex hover:cursor-pointer bg-gray-800 hover:text-violet-400 text-white h-auto rounded-md p-2 mb-4 border-t border-t-blue-200 border-opacity-10 shadow-md items-center transition-transform`}
       draggable={!isEditable}
+      style={{
+        color: card.color,
+      }}
       onDragStart={drag}
       onClick={(event) => {
         if (isDetailOpen === false && !isEditable) setIsDetailOpen(true);

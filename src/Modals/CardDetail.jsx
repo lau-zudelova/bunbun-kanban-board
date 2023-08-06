@@ -169,6 +169,6 @@ export default function CardDetail({ isOpen, close, card }) {
         </div>
       </div>
     </>,
-    document.getElementById("cardDetail")
+    document.getElementById("portal")
   );
 }

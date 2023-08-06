@@ -4,11 +4,13 @@ import {
   Trash,
   ArrowFatLineLeft,
   ArrowFatLineRight,
+  PaintBucket,
 } from "@phosphor-icons/react";
 import ReactDom from "react-dom";
 import { useGlobalContext } from "../GlobalContext";
 import { TYPES } from "../Classes/Types";
 import { DIRECTIONS } from "../Classes/Directions";
+import { COLORS } from "../Classes/Colors";
 
 export default function Menu({
   isOpen,
@@ -18,7 +20,8 @@ export default function Menu({
   object,
   setIsEditable,
 }) {
-  const { deleteContainer, deleteCard, moveContainer } = useGlobalContext();
+  const { deleteContainer, deleteCard, moveContainer, editCardColor } =
+    useGlobalContext();
 
   if (!isOpen) return null;
   return ReactDom.createPortal(
@@ -57,7 +60,49 @@ export default function Menu({
               <ArrowFatLineRight size={20} />
             </button>
           </div>
-        ) : null}
+        ) : (
+          <div>
+            <button
+              className="p-1 hover:bg-gray-700 rounded-md transition-all duration-100"
+              style={{
+                color: COLORS.DEFAULT,
+              }}
+              onClick={(event) => {
+                event.stopPropagation();
+                editCardColor(object, COLORS.DEFAULT);
+                close();
+              }}
+            >
+              <PaintBucket />
+            </button>
+            <button
+              className="p-1 m-1 hover:bg-gray-700 rounded-md transition-all duration-100"
+              style={{
+                color: COLORS.RED,
+              }}
+              onClick={(event) => {
+                event.stopPropagation();
+                editCardColor(object, COLORS.RED);
+                close();
+              }}
+            >
+              <PaintBucket />
+            </button>
+            <button
+              className="p-1 hover:bg-gray-700 rounded-md transition-all duration-100"
+              style={{
+                color: COLORS.BLUE,
+              }}
+              onClick={(event) => {
+                event.stopPropagation();
+                editCardColor(object, COLORS.BLUE);
+                close();
+              }}
+            >
+              <PaintBucket />
+            </button>
+          </div>
+        )}
         <button
           className="flex items-center p-1 m-1 w-full text-white hover:bg-gray-700 rounded-md hover:text-violet-400 transition-all duration-100"
           onClick={(event) => {
@@ -83,6 +128,6 @@ export default function Menu({
         </button>
       </div>
     </>,
-    document.getElementById("menuPortal")
+    document.getElementById("portal")
   );
 }

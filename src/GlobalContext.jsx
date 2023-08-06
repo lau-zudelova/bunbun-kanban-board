@@ -2,6 +2,7 @@ import React, { useState, useContext, useEffect } from "react";
 import { CardClass } from "./Classes/Classes";
 import { ContainerClass } from "./Classes/Classes";
 import { DIRECTIONS } from "./Classes/Directions";
+import { COLORS } from "./Classes/Colors";
 
 export function replaceCharacter(string, index, replacement) {
   return (
@@ -63,7 +64,7 @@ export const GlobalContextProvider = ({ children }) => {
         ...prevContainers[containerIndex],
         cards: [
           ...prevContainers[containerIndex].cards,
-          new CardClass("", "", containerId, []),
+          new CardClass("", "", containerId, [], COLORS.DEFAULT),
         ],
       };
     }
@@ -113,7 +114,8 @@ export const GlobalContextProvider = ({ children }) => {
               card.title,
               card.message,
               newContainer.id,
-              card.images
+              card.images,
+              card.color
             ),
             ...prevContainers[newContainerIndex].cards.slice(cardBelowIndex),
           ],
@@ -127,7 +129,8 @@ export const GlobalContextProvider = ({ children }) => {
               card.title,
               card.message,
               newContainer.id,
-              card.images
+              card.images,
+              card.color
             ),
           ],
         };
@@ -203,6 +206,23 @@ export const GlobalContextProvider = ({ children }) => {
     }
   }
 
+  function editCardColor(card, newColor) {
+    const prevContainers = [...containers];
+    const containerIndex = prevContainers.findIndex(
+      (container) => container.id === card.containerId
+    );
+    if (containerIndex !== -1) {
+      const cardIndex = prevContainers[containerIndex].cards.findIndex(
+        (item) => item.id === card.id
+      );
+      prevContainers[containerIndex].cards[cardIndex] = {
+        ...prevContainers[containerIndex].cards[cardIndex],
+        color: newColor,
+      };
+      setContainers(prevContainers);
+    }
+  }
+
   function editCardMessage(card, newMessage) {
     const prevContainers = [...containers];
     const containerIndex = prevContainers.findIndex(
@@ -271,6 +291,7 @@ export const GlobalContextProvider = ({ children }) => {
         deleteImage,
         moveCard,
         moveContainer,
+        editCardColor,
       }}
     >
       {children}
