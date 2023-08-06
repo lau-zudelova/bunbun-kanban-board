@@ -1,4 +1,5 @@
-![image](https://github.com/lau-zudelova/bunbun-kanban-board/assets/42751429/557c67f3-e064-4006-8724-36cf63f04f8f)# Bunbun Kanban Board
+# Bunbun Kanban Board
+
 I needed a simple but powerful kanban board with local storage for my work. All kanbans I have found online did not support neither Markdown nor inserting images (*crucial*), so I decided to make one!
 
   ## 📖 Introduction
