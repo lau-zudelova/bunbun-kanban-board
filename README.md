@@ -1,4 +1,4 @@
-# Bunbun Kanban Board
+![image](https://github.com/lau-zudelova/bunbun-kanban-board/assets/42751429/557c67f3-e064-4006-8724-36cf63f04f8f)# Bunbun Kanban Board
 I needed a simple but powerful kanban board with local storage for my work. All kanbans I have found online did not support neither Markdown nor inserting images (*crucial*), so I decided to make one!
 
   ## 📖 Introduction
@@ -12,33 +12,34 @@ I needed a simple but powerful kanban board with local storage for my work. All 
   ## ⚡ How to use
 
   - Plus buttons add cards and containers.
+  - `Enter` confirms adding the card / container, while `ESC` cancels it.
   - When adding a card, while still typing the title, `Shift + Enter` quickly saves the card and adds a new one.
+
+  ![](https://github.com/lau-zudelova/bunbun-kanban-board/blob/main/readme_resources/addCardsFast.gif)
+  
   - You can edit titles or delete cards and containers in the menu:
     
   ![](https://github.com/lau-zudelova/bunbun-kanban-board/blob/main/readme_resources/edit.gif)
 
   - Hit `Enter` to save changes, or `ESC` to cancel them.
-  - `Enter` also confirms adding the card / container, while `ESC` cancels it.
-
   - Change the text color of a card:
     
   ![](https://github.com/lau-zudelova/bunbun-kanban-board/blob/main/readme_resources/changeColor.gif)
 
-  - Click on a card to open detail:
+  - Supports Markdown divider in the card title:
     
-  ![image](https://github.com/lau-zudelova/bunbun-kanban-board/assets/42751429/4f1cc796-08d7-4da4-87a4-9b3c9d4e6e4f)
+   ![](https://github.com/lau-zudelova/bunbun-kanban-board/blob/main/readme_resources/divider.gif)
 
-  - Back Arrow (`ESC`) to undo changes, Checkmark (`Shift + Enter`) to save changes, X (click away) to close the card:
-    
-  ![image](https://github.com/lau-zudelova/bunbun-kanban-board/assets/42751429/727fa971-166e-47d7-8268-108d460dc251)
+  - Click on a card to open detail.
+  - Checkmark (`Shift + Enter`) to save changes, Back Arrow (`ESC`) to discard changes, X (click away) to close the card.
+  - Pencil to enter Editing mode.
 
-  - Pencil to enter Editing mode:
+  ![](https://github.com/lau-zudelova/bunbun-kanban-board/blob/main/readme_resources/cardDetail.gif)
     
-  ![image](https://github.com/lau-zudelova/bunbun-kanban-board/assets/42751429/86168d26-793a-464b-938d-48d34c36537a)
 
   - Markdown preview: 
   
-  ![image](https://github.com/lau-zudelova/bunbun-kanban-board/assets/42751429/76c94059-89c5-49e4-b80c-f423b4cdb118)
+  ![image](https://github.com/lau-zudelova/bunbun-kanban-board/assets/42751429/2e582c55-dcbc-4e3a-bbee-45a154af55d1)
 
   - Also supports checking checkboxes directly, without having to enter editing mode:
 
@@ -70,6 +71,9 @@ I needed a simple but powerful kanban board with local storage for my work. All 
   - [ ] Import + Export
   - [x] Color coding cards
   - [ ] Preview for TODOs
+
+  ## 📃 Sources
+  - ![React Markdown](https://github.com/remarkjs/react-markdown) for Markdown support!
 
 ---
 
