@@ -124,7 +124,6 @@ export default function CardDetail({ isOpen, close, card }) {
                   onClick={() => {
                     setIsEditable(false);
                     saveMessage(messageInput);
-                    saveTitle(titleInput);
                   }}
                 >
                   <CheckFat size={30} />
