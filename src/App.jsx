@@ -9,6 +9,7 @@ function App() {
   const { containers, addContainer } = useGlobalContext();
   const [parent] = useAutoAnimate();
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
+  const [coords, setCoords] = useState(null);
 
   const dragStart = (event) => {
     if (event.target.classList.contains("Card")) {
@@ -22,13 +23,25 @@ function App() {
     }
   };
 
+  const getCoords = () => {
+    const buttonElement = document.getElementById("settingsButton");
+    if (buttonElement) {
+      const buttonRect = buttonElement.getBoundingClientRect();
+      setCoords(buttonRect);
+    }
+  };
+
   return (
     <>
-      <div onDragStart={dragStart} onDragEnd={dragEnd}>
+      <div onDragStart={dragStart} onDragEnd={dragEnd} className="relative">
         <div className="flex justify-end items-center mt-3 mr-3">
           <button
             className="p-1 justify-self-end text-white hover:bg-gray-700 rounded-md hover:text-violet-400 transition-all duration-100"
-            onClick={() => setIsSettingsOpen(true)}
+            id="settingsButton"
+            onClick={() => {
+              setIsSettingsOpen(true);
+              getCoords();
+            }}
           >
             <GearSix size={25} />
           </button>
@@ -37,6 +50,8 @@ function App() {
           close={() => {
             setIsSettingsOpen(false);
           }}
+          isOpen={isSettingsOpen}
+          coords={coords}
         />
         <div className="w-full flex justify-center items-center select-none">
           <h1 className="relative w-fit m-5 mb-10 px-32 pb-2 text-white font-bold text-5xl bg-gradient-to-b from-transparent from-50% to-violet-500/50 to-50%">
