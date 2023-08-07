@@ -77,7 +77,7 @@ export default function CardDetail({ isOpen, close, card }) {
                 </button>
               </div>
 
-              <h1 className=" mx-5 mb-8 px-3 pb-2 text-center text-white font-bold text-5xl bg-gradient-to-b from-transparent from-50% to-violet-500/50 to-50%">
+              <h1 className=" mx-5 mb-8 px-3 pb-2 text-center text-white font-bold break-words text-5xl bg-gradient-to-b from-transparent from-50% to-violet-500/50 to-50%">
                 {card.title}
               </h1>
 
