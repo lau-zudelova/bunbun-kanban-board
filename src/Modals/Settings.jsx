@@ -2,6 +2,23 @@ import { DownloadSimple, GithubLogo, Export } from "@phosphor-icons/react";
 import React from "react";
 import ReactDom from "react-dom";
 
+function download(filename) {
+  const data = localStorage.getItem("userData");
+  var element = document.createElement("a");
+  element.setAttribute(
+    "href",
+    "data:text/plain;charset=utf-8," + encodeURIComponent(JSON.stringify(data))
+  );
+  element.setAttribute("download", filename);
+
+  element.style.display = "none";
+  document.body.appendChild(element);
+
+  element.click();
+
+  document.body.removeChild(element);
+}
+
 export default function Settings({ close, isOpen, coords }) {
   if (!isOpen) return null;
   return ReactDom.createPortal(
@@ -21,7 +38,17 @@ export default function Settings({ close, isOpen, coords }) {
           <DownloadSimple size={23} className="pr-1" />
           Import
         </button>
-        <button className="flex items-center p-1 m-1 w-full text-white hover:bg-gray-700 rounded-md hover:text-violet-400 transition-all duration-100">
+        <button
+          className="flex items-center p-1 m-1 w-full text-white hover:bg-gray-700 rounded-md hover:text-violet-400 transition-all duration-100"
+          onClick={() => {
+            const date = new Date();
+            download(
+              `kanbanData-${date.getDate()}-${
+                date.getMonth() + 1
+              }-${date.getFullYear()}-at-${date.getHours()}-${date.getMinutes()}.txt`
+            );
+          }}
+        >
           <Export size={23} className="pr-1" />
           Export
         </button>
