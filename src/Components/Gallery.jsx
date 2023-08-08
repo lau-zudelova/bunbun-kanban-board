@@ -166,13 +166,23 @@ export default function Gallery({ card }) {
                 >
                   <X size={25} />
                 </button>
-                <a href={image} target="_blank" rel="noopener noreferrer">
+                <button
+                  onClick={() => {
+                    var win = window.open();
+                    win.document.write(
+                      "<div style='background-color: #181f2f;width:100%;height:100%;display: flex; justify-content: center; align-items:center'> <img style='max-width: 100%; max-height:100%'  src='" +
+                        image +
+                        "'/></div>"
+                    );
+                    win.document.body.style.margin = "0";
+                  }}
+                >
                   <img
                     className="h-[80px] md:h-[165px] max-w-full rounded-lg peer"
                     src={image}
                     alt=""
                   />
-                </a>
+                </button>
               </div>
             );
           })}
