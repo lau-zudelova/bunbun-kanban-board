@@ -1,4 +1,4 @@
-import { FileImage, Images, X } from "@phosphor-icons/react";
+import { FileImage, HeartBreak, Images, X } from "@phosphor-icons/react";
 import { useGlobalContext } from "../GlobalContext";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
 
@@ -143,7 +143,14 @@ export default function Gallery({ card }) {
           >
             <Images size={30} className="mr-2" /> Paste
           </button>
-        ) : null}
+        ) : (
+          <button className="group flex flex-row justify-center items-center m-3 mb-0 text-white brightness-50 font-semibold hover:text-red-400">
+            <Images size={30} className="mr-2 group-hover:hidden" />
+            <HeartBreak size={30} className="mr-2 hidden group-hover:block" />
+            <p className="group-hover:hidden">Paste</p>
+            <p className="hidden group-hover:block">Not supported in Firefox</p>
+          </button>
+        )}
       </div>
       {card.images.length !== 0 && (
         <div
