@@ -63,3 +63,7 @@ ol {
 .Card.highlight {
   @apply transition-none border-t-2 border-violet-300;
 }
+
+input[type="file"] {
+  display: none;
+}

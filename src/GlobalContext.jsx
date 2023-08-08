@@ -30,6 +30,13 @@ export const GlobalContextProvider = ({ children }) => {
     localStorage.setItem("userData", JSON.stringify(containers));
   }
 
+  function loadData(rawData) {
+    const newData = JSON.parse(rawData);
+    console.log(newData);
+    localStorage.setItem("userData", rawData);
+    setContainers(newData);
+  }
+
   function addContainer() {
     setContainers((container) => {
       return [...container, new ContainerClass("")];
@@ -293,6 +300,7 @@ export const GlobalContextProvider = ({ children }) => {
         moveCard,
         moveContainer,
         editCardColor,
+        loadData,
       }}
     >
       {children}
