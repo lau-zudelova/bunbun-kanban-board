@@ -24,8 +24,8 @@ I needed a simple but powerful kanban board with local storage for my work. All 
 
 ![](https://github.com/lau-zudelova/bunbun-kanban-board/blob/main/readme_resources/checkbox.gif)
 
-- Paste image from clipboard
-- **IMPORTANT**: Images are supported in all browsers except Firefox, since clipboard pasting is not supported in Firefox - [link](https://developer.mozilla.org/en-US/docs/Web/API/Clipboard_API)
+- Paste image from clipboard or upload it from a file
+- **IMPORTANT**: Since clipboard pasting is not supported in Firefox - [link](https://developer.mozilla.org/en-US/docs/Web/API/Clipboard_API) - you can only upload the image from file.
 
 ![](https://github.com/lau-zudelova/bunbun-kanban-board/blob/main/readme_resources/images.gif)
 
