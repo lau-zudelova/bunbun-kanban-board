@@ -1,4 +1,4 @@
-import { Images, X } from "@phosphor-icons/react";
+import { FileImage, Images, X } from "@phosphor-icons/react";
 import { useGlobalContext } from "../GlobalContext";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
 
@@ -106,16 +106,45 @@ export default function Gallery({ card }) {
     });
   }
 
+  function importImage(e) {
+    const fileReader = new FileReader();
+    fileReader.onloadend = () => {
+      const content = fileReader.result;
+      appendImage(card, content);
+    };
+    fileReader.readAsDataURL(e.target.files[0]);
+  }
+
   return (
     <>
-      <button
-        className="flex flex-row justify-center items-center m-3 mb-0 text-white font-semibold hover:text-violet-400"
-        onClick={() => {
-          pasteImageBitmap();
-        }}
-      >
-        <Images size={30} className="mr-2" /> Paste image
-      </button>
+      <div className="flex">
+        <label
+          id="image-upload"
+          className="flex flex-row justify-center items-center m-3 mb-0 text-white font-semibold hover:text-violet-400 hover:cursor-pointer"
+        >
+          <input
+            type="file"
+            accept=".bmp,.gif,.png,.jpeg,.tiff"
+            onChange={(e) => importImage(e)}
+          />
+          {!navigator.userAgent.includes("Firefox") ? (
+            <FileImage size={30} className="mr-2" />
+          ) : (
+            <Images size={30} className="mr-2" />
+          )}
+          Import
+        </label>
+        {!navigator.userAgent.includes("Firefox") ? (
+          <button
+            className="flex flex-row justify-center items-center m-3 mb-0 text-white font-semibold hover:text-violet-400"
+            onClick={() => {
+              pasteImageBitmap();
+            }}
+          >
+            <Images size={30} className="mr-2" /> Paste
+          </button>
+        ) : null}
+      </div>
       {card.images.length !== 0 && (
         <div
           ref={parent}
@@ -137,11 +166,13 @@ export default function Gallery({ card }) {
                 >
                   <X size={25} />
                 </button>
-                <img
-                  className="h-[80px] md:h-[165px] max-w-full rounded-lg peer"
-                  src={image}
-                  alt=""
-                />
+                <a href={image} target="_blank" rel="noopener noreferrer">
+                  <img
+                    className="h-[80px] md:h-[165px] max-w-full rounded-lg peer"
+                    src={image}
+                    alt=""
+                  />
+                </a>
               </div>
             );
           })}
