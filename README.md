@@ -22,7 +22,7 @@ I needed a simple but powerful kanban board with local storage for my work. All 
 
 - Working checkboxes with a preview on the card:
 
-![](https://github.com/lau-zudelova/bunbun-kanban-board/blob/main/readme_resources/newCheckboxes.gif)
+![](https://github.com/lau-zudelova/bunbun-kanban-board/blob/main/readme_resources/previewCheckboxes.gif)
   
 
 - Paste image from clipboard or upload it from a file
@@ -41,6 +41,8 @@ I needed a simple but powerful kanban board with local storage for my work. All 
 - Markdown divider in the card title:
 
 ![](https://github.com/lau-zudelova/bunbun-kanban-board/blob/main/readme_resources/divider.gif)
+
+- Import / Export
 
 
 ## 📃 Sources
