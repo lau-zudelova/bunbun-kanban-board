@@ -43,6 +43,7 @@ export default function Card({ card }) {
     const regex = /(- \[(?: |x)\] .*)(\n|$)/g;
     const string = card.message;
     const result = string.match(regex);
+    if (result.length === 0) return "";
     return result.join("");
   }
 
