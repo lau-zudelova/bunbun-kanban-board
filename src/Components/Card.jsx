@@ -168,7 +168,7 @@ export default function Card({ card }) {
                     onClick={(e) => {
                       e.stopPropagation();
                     }}
-                    className="pointer-events-auto"
+                    className="pointer-events-auto hover:cursor-pointer"
                   />
                 );
               },

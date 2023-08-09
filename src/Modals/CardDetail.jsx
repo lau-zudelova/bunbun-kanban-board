@@ -3,9 +3,7 @@ import {
   ArrowCounterClockwise,
   CheckFat,
   NotePencil,
-  Pencil,
   XCircle,
-  Link,
   FileText,
 } from "@phosphor-icons/react";
 import ReactDom from "react-dom";
@@ -101,6 +99,7 @@ export default function CardDetail({ isOpen, close, card }) {
                           toggleInputCheckbox(siblingContent, props.checked);
                         }}
                         checked={props.checked ? true : false}
+                        className="hover:cursor-pointer"
                       />
                     );
                   },
