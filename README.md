@@ -42,6 +42,8 @@ I needed a simple but powerful kanban board with local storage for my work. All 
 
 ![](https://github.com/lau-zudelova/bunbun-kanban-board/blob/main/readme_resources/divider.gif)
 
+- Import / Export
+
 
 ## 📃 Sources
 
