@@ -6,6 +6,7 @@ import { useGlobalContext } from "../GlobalContext";
 import CardDetail from "../Modals/CardDetail";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
+import { replaceCharacter } from "../GlobalContext";
 
 export default function Card({ card }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -17,7 +18,9 @@ export default function Card({ card }) {
     else return false;
   });
 
-  const { editCardTitle, addCard, deleteCard } = useGlobalContext();
+  const { editCardTitle, addCard, deleteCard, editCardMessage } =
+    useGlobalContext();
+  const [messageInput, setMessageInput] = useState(card.message);
 
   const getCoords = () => {
     const buttonElement = document.getElementById(card.id);
@@ -45,6 +48,27 @@ export default function Card({ card }) {
     const result = string.match(regex);
     if (result === null) return null;
     return result.join("");
+  }
+
+  const saveMessage = (msg) => {
+    editCardMessage(card, msg);
+    setIsEditable(false);
+  };
+
+  function toggleInputCheckbox(content, isTicked) {
+    let prevMessage = messageInput;
+    const index = prevMessage.indexOf(content);
+
+    if (index !== -1) {
+      if (isTicked) {
+        prevMessage = replaceCharacter(prevMessage, index + 3, " ");
+      } else {
+        prevMessage = replaceCharacter(prevMessage, index + 3, "x");
+      }
+    }
+
+    saveMessage(prevMessage);
+    setMessageInput(prevMessage);
   }
 
   return (
@@ -141,6 +165,10 @@ export default function Card({ card }) {
                     }}
                     // readOnly={true}
                     checked={props.checked ? true : false}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                    }}
+                    className="pointer-events-auto"
                   />
                 );
               },
