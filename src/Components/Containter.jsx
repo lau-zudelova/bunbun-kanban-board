@@ -76,7 +76,7 @@ export default function Container({ container }) {
       onDragOver={allowDrop}
       onDrop={(event) => drop(event, container)}
     >
-      <div className="flex items-center pb-2 pl-2 mb-5 border-solid border-b border-violet-500/70 pointer-events-none text-lg">
+      <div className="flex items-center pb-2 pl-2 mb-5 border-solid border-b-2 border-violet-500/70 pointer-events-none text-lg">
         {isEditable ? (
           <input
             autoFocus
