@@ -20,9 +20,10 @@ I needed a simple but powerful kanban board with local storage for my work. All 
 
 ![image](https://github.com/lau-zudelova/bunbun-kanban-board/assets/42751429/59c5300a-6c08-428f-9946-df03cfead903)
 
-- Working checkboxes:
+- Working checkboxes with a preview on the card:
 
-![](https://github.com/lau-zudelova/bunbun-kanban-board/blob/main/readme_resources/checkbox.gif)
+![](https://github.com/lau-zudelova/bunbun-kanban-board/blob/main/readme_resources/newCheckboxes.gif)
+  
 
 - Paste image from clipboard or upload it from a file
 - **IMPORTANT**: Since clipboard pasting is not supported in Firefox - [link](https://developer.mozilla.org/en-US/docs/Web/API/Clipboard_API) - you can only upload the image from file.
@@ -41,11 +42,6 @@ I needed a simple but powerful kanban board with local storage for my work. All 
 
 ![](https://github.com/lau-zudelova/bunbun-kanban-board/blob/main/readme_resources/divider.gif)
 
-## 📋 To be added
-
-- [ ] Import + Export
-- [x] Color coding cards
-- [ ] Preview for TODOs
 
 ## 📃 Sources
 
