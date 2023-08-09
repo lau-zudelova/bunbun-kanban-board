@@ -120,7 +120,7 @@ export default function Card({ card }) {
       </div>
       {card.message ? (
         <>
-          <hr className="border border-gray-700 my-2" />
+          <hr className="border border-gray-700 my-2 pointer-events-none" />
           <ReactMarkdown
             children={parseCheckboxes()}
             remarkPlugins={[remarkGfm]}
