@@ -130,13 +130,13 @@ export default function Card({ card }) {
                 return (
                   <input
                     type="checkbox"
-                    // onChange={(e) => {
-                    //   const siblingContent =
-                    //     (props.checked ? "- [x]" : "- [ ]") +
-                    //     e.target.parentElement.textContent;
-                    //   toggleInputCheckbox(siblingContent, props.checked);
-                    // }}
-                    readOnly={true}
+                    onChange={(e) => {
+                      const siblingContent =
+                        (props.checked ? "- [x]" : "- [ ]") +
+                        e.target.parentElement.textContent;
+                      toggleInputCheckbox(siblingContent, props.checked);
+                    }}
+                    // readOnly={true}
                     checked={props.checked ? true : false}
                   />
                 );
