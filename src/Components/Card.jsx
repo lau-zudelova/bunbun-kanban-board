@@ -43,7 +43,7 @@ export default function Card({ card }) {
     const regex = /(- \[(?: |x)\] .*)(\n|$)/g;
     const string = card.message;
     const result = string.match(regex);
-    if (result === null) return "";
+    if (result === null) return null;
     return result.join("");
   }
 
@@ -122,7 +122,7 @@ export default function Card({ card }) {
           setIsEditable={setIsEditable}
         />
       </div>
-      {card.message ? (
+      {parseCheckboxes() ? (
         <>
           <hr className="border border-gray-700 my-2 pointer-events-none" />
           <ReactMarkdown
