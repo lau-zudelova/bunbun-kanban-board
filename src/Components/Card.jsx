@@ -76,7 +76,7 @@ export default function Card({ card }) {
       ) : (
         <>
           {card.title === "---" ? (
-            <hr className="w-full h-full bg-green-200 border border-gray-500" />
+            <hr className="w-full h-full border-gray-500 pointer-events-none" />
           ) : (
             <p className="w-[90%] pointer-events-none font-semibold cursor-pointer break-words">
               {card.title}
