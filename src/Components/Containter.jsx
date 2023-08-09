@@ -53,6 +53,8 @@ export default function Container({ container }) {
     // const newContainer = event.currentTarget.dataset.container;
     const cardId = event.dataTransfer.getData("text/plain");
     const cardBelowId = event.target.dataset.cardid;
+    console.log("test");
+    console.log(cardBelowId);
 
     event.target.classList.remove("highlight");
 
@@ -74,7 +76,7 @@ export default function Container({ container }) {
       onDragOver={allowDrop}
       onDrop={(event) => drop(event, container)}
     >
-      <div className="flex items-center pb-2 pl-2 mb-5 border-solid border-b border-violet-500/70 pointer-events-none">
+      <div className="flex items-center pb-2 pl-2 mb-5 border-solid border-b border-violet-500/70 pointer-events-none text-lg">
         {isEditable ? (
           <input
             autoFocus
