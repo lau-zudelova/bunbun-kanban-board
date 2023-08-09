@@ -3,7 +3,10 @@ import {
   ArrowCounterClockwise,
   CheckFat,
   NotePencil,
+  Pencil,
   XCircle,
+  Link,
+  FileText,
 } from "@phosphor-icons/react";
 import ReactDom from "react-dom";
 import { useGlobalContext } from "../GlobalContext";
@@ -62,7 +65,7 @@ export default function CardDetail({ isOpen, close, card }) {
         <div className="flex items-center justify-center flex-col z-20 p-5 h-full md:h-3/4 w-full md:w-3/4 md:rounded-lg bg-gray-800 shadow-lg fade-in ">
           {!isEditable ? (
             <>
-              <div className="w-full flex justify-end flex-row">
+              <div className="w-full flex flex-row justify-end">
                 <button
                   className="mr-2 text-white hover:text-violet-400"
                   onClick={() => setIsEditable(true)}
@@ -70,7 +73,7 @@ export default function CardDetail({ isOpen, close, card }) {
                   <NotePencil size={30} />
                 </button>
                 <button
-                  className="text-white hover:text-violet-400"
+                  className="text-white hover:text-violet-400 "
                   onClick={() => close()}
                 >
                   <XCircle size={30} />
@@ -109,6 +112,15 @@ export default function CardDetail({ isOpen, close, card }) {
           ) : (
             <>
               <div className="w-full flex justify-end flex-row">
+                <a
+                  className="text-white hover:text-violet-400 mr-auto"
+                  href="https://user-images.githubusercontent.com/42751429/258665692-59c5300a-6c08-428f-9946-df03cfead903.png"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="Markdown help"
+                >
+                  <FileText size={30} />
+                </a>
                 <button
                   onClick={() => {
                     setIsEditable(false);
