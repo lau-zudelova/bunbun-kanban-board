@@ -39,11 +39,11 @@ export default function Card({ card }) {
 
   return (
     <div
-      className={`Card flex justify-between hover:cursor-pointer bg-gray-800 hover:text-violet-400 text-white h-auto rounded-md p-2 mb-4 border-t border-t-blue-200 border-opacity-10 shadow-md items-center transition-transform`}
+      className={
+        `Card flex justify-between hover:cursor-pointer bg-gray-800 hover:text-violet-400 h-auto rounded-md p-2 mb-4 border-t border-t-blue-200 border-opacity-10 shadow-md items-center transition-transform ` +
+        card.color
+      }
       draggable={!isEditable}
-      style={{
-        color: card.color,
-      }}
       onDragStart={drag}
       onClick={(event) => {
         if (isDetailOpen === false && !isEditable) setIsDetailOpen(true);
@@ -78,7 +78,7 @@ export default function Card({ card }) {
           {card.title === "---" ? (
             <hr className="w-full h-full border border-gray-500 pointer-events-none" />
           ) : (
-            <p className="w-[90%] pointer-events-none font-semibold cursor-pointer break-words">
+            <p className="w-[90%] pointer-events-none font-semibold break-words">
               {card.title}
             </p>
           )}

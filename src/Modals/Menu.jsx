@@ -63,10 +63,10 @@ export default function Menu({
         ) : (
           <div>
             <button
-              className="p-1 hover:bg-gray-700 rounded-md transition-all duration-100"
-              style={{
-                color: COLORS.DEFAULT,
-              }}
+              className={
+                "p-1 hover:bg-gray-700 rounded-md transition-all duration-100 " +
+                COLORS.DEFAULT
+              }
               onClick={(event) => {
                 event.stopPropagation();
                 editCardColor(object, COLORS.DEFAULT);
@@ -76,10 +76,10 @@ export default function Menu({
               <PaintBucket />
             </button>
             <button
-              className="p-1 m-1 hover:bg-gray-700 rounded-md transition-all duration-100"
-              style={{
-                color: COLORS.RED,
-              }}
+              className={
+                "p-1 m-1 hover:bg-gray-700 rounded-md transition-all duration-100 " +
+                COLORS.RED
+              }
               onClick={(event) => {
                 event.stopPropagation();
                 editCardColor(object, COLORS.RED);
@@ -89,10 +89,10 @@ export default function Menu({
               <PaintBucket />
             </button>
             <button
-              className="p-1 hover:bg-gray-700 rounded-md transition-all duration-100"
-              style={{
-                color: COLORS.BLUE,
-              }}
+              className={
+                "p-1 hover:bg-gray-700 rounded-md transition-all duration-100 " +
+                COLORS.BLUE
+              }
               onClick={(event) => {
                 event.stopPropagation();
                 editCardColor(object, COLORS.BLUE);

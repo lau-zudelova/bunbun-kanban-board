@@ -1,5 +1,5 @@
 export const COLORS = {
-  DEFAULT: "#ffffff",
-  RED: "#fca5a5",
-  BLUE: "#7dd3fc",
+  DEFAULT: "text-white",
+  RED: "text-red-400",
+  BLUE: "text-blue-400",
 };
